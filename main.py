@@ -5,7 +5,7 @@ from tkinter import ttk
 # Define lists of words
 prefix = ["Wet", "Sticky", "Smooth", "Hideous", "Sexy", "Rude", "Strange", "Creamy", "Wavy", "Running", "Chunky",
           "Stormy", "Desolate", "Crisp"]
-noun = ["Bikers", "Hands", "Witches", "Blenders", "Housekeepers", "Streamers", "Eggs", "Fishes", "Dustbunnies",
+noun = ["Bikers", "Hands", "Witches", "Blenders", "Maids", "Streamers", "Eggs", "Fishes", "Dustbunnies",
         "Pieces", "Chunks", "Bushes", "Mushrooms"]
 
 
@@ -14,12 +14,12 @@ root = Tk()
 root.title("Team Name Generator")
 root.iconbitmap("turtle.ico")
 root.resizable(False, False)
-root.geometry("300x180")
+root.geometry("440x150")
 
 # Set up the grid
 mainframe = ttk.Frame(root, width=300, height=200)
 mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
-mainframe.pack(fill="both", expand=True, padx=20, pady=20)
+mainframe.pack(fill="both", expand=True, padx=10, pady=10)
 root.columnconfigure(0, weight=1)
 root.rowconfigure(0, weight=1)
 
@@ -60,18 +60,18 @@ def doButtons():
     space2 = ttk.Label(mainframe, text="")
     space2.grid(column=3, row=3)
 
-    btn1 = ttk.Button(mainframe, text=p1, command=lambda: space1.config(text=p1))
+    btn1 = ttk.Button(mainframe, width=20, text=p1, command=lambda: space1.config(text=p1))
     btn1.grid(column=1, row=1)
-    btn2 = ttk.Button(mainframe, text=p2, command=lambda: space1.config(text=p2))
+    btn2 = ttk.Button(mainframe, width=20, text=p2, command=lambda: space1.config(text=p2))
     btn2.grid(column=2, row=1)
-    btn3 = ttk.Button(mainframe, text=p3, command=lambda: space1.config(text=p3))
+    btn3 = ttk.Button(mainframe, width=20, text=p3, command=lambda: space1.config(text=p3))
     btn3.grid(column=3, row=1)
 
-    btn4 = ttk.Button(mainframe, text=n1, command=lambda: space2.config(text=n1))
+    btn4 = ttk.Button(mainframe, width=20, text=n1, command=lambda: space2.config(text=n1))
     btn4.grid(column=1, row=2)
-    btn5 = ttk.Button(mainframe, text=n2, command=lambda: space2.config(text=n2))
+    btn5 = ttk.Button(mainframe, width=20, text=n2, command=lambda: space2.config(text=n2))
     btn5.grid(column=2, row=2)
-    btn6 = ttk.Button(mainframe, text=n3, command=lambda: space2.config(text=n3))
+    btn6 = ttk.Button(mainframe, width=20, text=n3, command=lambda: space2.config(text=n3))
     btn6.grid(column=3, row=2)
 
     # Adds padding to the buttons to make it look nicer
