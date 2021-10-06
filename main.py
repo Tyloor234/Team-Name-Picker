@@ -74,6 +74,10 @@ def doButtons():
     btn6 = ttk.Button(mainframe, text=n3, command=lambda: space2.config(text=n3))
     btn6.grid(column=3, row=2)
 
+    # Adds padding to the buttons to make it look nicer
+    for child in mainframe.winfo_children():
+        child.grid_configure(padx=5, pady=5)
+
 
 doButtons()
 
@@ -82,19 +86,17 @@ def reRoll():
 
     getWords()
 
-    btn1.config(text=p1)
-    btn2.config(text=p2)
-    btn3.config(text=p3)
-    btn4.config(text=n1)
-    btn5.config(text=n2)
-    btn6.config(text=n3)
+    btn1.destroy()
+    btn2.destroy()
+    btn3.destroy()
+    btn4.destroy()
+    btn5.destroy()
+    btn6.destroy()
 
     space1.destroy()
     space2.destroy()
 
+    doButtons()
 
-# Adds padding to the buttons to make it look nicer
-for child in mainframe.winfo_children():
-    child.grid_configure(padx=5, pady=5)
 
 root.mainloop()
