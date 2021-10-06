@@ -41,24 +41,57 @@ def getWords():
 
 
 # Creates the buttons, when clicked the buttons add the word that's on them to the bottom "Team name" row
+getWords()
+
+
 def doButtons():
 
-    getWords()
+    global btn1, btn2, btn3, btn4, btn5, btn6, space1, space2
 
-    ttk.Button(mainframe, text=p1, command=lambda: ttk.Label(mainframe, text=p1).grid(column=2, row=3)).grid(column=1, row=1)
-    ttk.Button(mainframe, text=p2, command=lambda: ttk.Label(mainframe, text=p2).grid(column=2, row=3)).grid(column=2, row=1)
-    ttk.Button(mainframe, text=p3, command=lambda: ttk.Label(mainframe, text=p3).grid(column=2, row=3)).grid(column=3, row=1)
+    labelThe = ttk.Label(mainframe, text="The")
+    labelThe.grid(column=1, row=3)
 
-    ttk.Button(mainframe, text=n1, command=lambda: ttk.Label(mainframe, text=n1).grid(column=3, row=3)).grid(column=1, row=2)
-    ttk.Button(mainframe, text=n2, command=lambda: ttk.Label(mainframe, text=n2).grid(column=3, row=3)).grid(column=2, row=2)
-    ttk.Button(mainframe, text=n3, command=lambda: ttk.Label(mainframe, text=n3).grid(column=3, row=3)).grid(column=3, row=2)
+    btnReroll = ttk.Button(mainframe, text="Reroll!", command=lambda: reRoll())
+    btnReroll.grid(column=2, row=4)
+
+    space1 = ttk.Label(mainframe, text="")
+    space1.grid(column=2, row=3)
+
+    space2 = ttk.Label(mainframe, text="")
+    space2.grid(column=3, row=3)
+
+    btn1 = ttk.Button(mainframe, text=p1, command=lambda: space1.config(text=p1))
+    btn1.grid(column=1, row=1)
+    btn2 = ttk.Button(mainframe, text=p2, command=lambda: space1.config(text=p2))
+    btn2.grid(column=2, row=1)
+    btn3 = ttk.Button(mainframe, text=p3, command=lambda: space1.config(text=p3))
+    btn3.grid(column=3, row=1)
+
+    btn4 = ttk.Button(mainframe, text=n1, command=lambda: space2.config(text=n1))
+    btn4.grid(column=1, row=2)
+    btn5 = ttk.Button(mainframe, text=n2, command=lambda: space2.config(text=n2))
+    btn5.grid(column=2, row=2)
+    btn6 = ttk.Button(mainframe, text=n3, command=lambda: space2.config(text=n3))
+    btn6.grid(column=3, row=2)
 
 
 doButtons()
 
 
-ttk.Label(mainframe, text="The").grid(column=1, row=3)
-ttk.Button(mainframe, text="Reroll!", command=lambda: doButtons()).grid(column=2, row=4)
+def reRoll():
+
+    getWords()
+
+    btn1.config(text=p1)
+    btn2.config(text=p2)
+    btn3.config(text=p3)
+    btn4.config(text=n1)
+    btn5.config(text=n2)
+    btn6.config(text=n3)
+
+    space1.destroy()
+    space2.destroy()
+
 
 # Adds padding to the buttons to make it look nicer
 for child in mainframe.winfo_children():
